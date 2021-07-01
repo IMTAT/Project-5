@@ -12,7 +12,7 @@ namespace Project5
             {
                 new Member("IBRA", "Computer Eng"),
                 new Member("TAGHREED", "Computer Science"),
-                new Member("IBRA", "Computer Eng"),
+                new Member("TAIF", "IT"),
                 new Member("IBRA", "Computer Eng"),
                 new Member("IBRA", "Computer Eng"),
             };
