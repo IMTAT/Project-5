@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Project5
 {
@@ -6,7 +7,16 @@ namespace Project5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<Member> members = new List<Member>()
+            {
+                new Member("IBRA", "Computer Eng"),
+                new Member("IBRA", "Computer Eng"),
+                new Member("IBRA", "Computer Eng"),
+                new Member("IBRA", "Computer Eng"),
+                new Member("IBRA", "Computer Eng"),
+            };
         }
+        
+        
     }
 }
