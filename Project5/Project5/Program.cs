@@ -12,7 +12,7 @@ namespace Project5
                 new Member("IBRA", "Computer Eng"),
                 new Member("TAGHREED", "Computer Science"),
                 new Member("Meshal", "Electrical Engineer"),
-                new Member("TAIF", "IT"),
+                new Member("Amal Almutairi", "Computer Science"),
                 new Member("IBRA", "Computer Eng"),
             };
             CreateXMLFile(members);
@@ -24,23 +24,28 @@ namespace Project5
             xmldoc.AppendChild(root);
             foreach (var member in members)
             {
-                root.AppendChild(createElement(xmldoc, member));
+                root.AppendChild(CreateElement(xmldoc, member));
             }
-            xmldoc.Save("C:/Users/Taghr/Documents/Test.xml");
+            xmldoc.Save("C:/Users/amalf/OneDrive/Desktop/Test.xml");
             Console.WriteLine(xmldoc.InnerXml);
         }
-        public static XmlElement createElement(XmlDocument xmldoc, Member member)
+        public static XmlElement CreateElement(XmlDocument xmldoc, Member member)
         {
             XmlElement memberTag = xmldoc.CreateElement("member");
-            XmlElement nameTag = xmldoc.CreateElement("name");
-            XmlText nameText = xmldoc.CreateTextNode(member.name);
-            nameTag.AppendChild(nameText);
-            XmlElement majorTag = xmldoc.CreateElement("major");
-            XmlText majorText = xmldoc.CreateTextNode(member.major);
-            majorTag.AppendChild(majorText);
-            memberTag.AppendChild(nameTag);
-            memberTag.AppendChild(majorTag);
+
+            memberTag.AppendChild(CreateChiledElements(xmldoc, "name",member.name));
+            memberTag.AppendChild(CreateChiledElements(xmldoc, "magor", member.major));
+
             return memberTag;
         }
-    }
+
+        static XmlElement CreateChiledElements(XmlDocument xmldoc, string Tag, string Text)
+        {
+            XmlElement TagElement = xmldoc.CreateElement(Tag);
+            XmlText TagText = xmldoc.CreateTextNode(Text);
+            TagElement.AppendChild(TagText);
+
+            return TagElement;
+        }
+        }
 }
