@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Xml;
 namespace Project5
 {
@@ -11,11 +12,19 @@ namespace Project5
             {
                 new Member("IBRA", "Computer Eng"),
                 new Member("TAGHREED", "Computer Science"),
-                new Member("Meshal", "Electrical Engineer"),
-                new Member("Amal Almutairi", "Computer Science"),
-                new Member("IBRA", "Computer Eng"),
+                new Member("MESHAL", "Electrical Engineer"),
+                new Member("AMAL", "Computer Science"),
+                new Member("TAIF", "IT"),
             };
-            CreateXMLFile(members);
+
+            Thread thread1 = new Thread(() =>
+            {
+                CreateXMLFile(members);
+            });
+            Thread thread2 = new Thread(()=>ReadXMLFile());
+            thread1.Start();
+            thread1.Join();
+            thread2.Start();
         }
         public static void CreateXMLFile(List<Member> members)
         {
@@ -26,15 +35,15 @@ namespace Project5
             {
                 root.AppendChild(CreateElement(xmldoc, member));
             }
-            xmldoc.Save("C:/Users/amalf/OneDrive/Desktop/Test.xml");
+            xmldoc.Save("C:/Users/taef_/Desktop/Test.xml");
             Console.WriteLine(xmldoc.InnerXml);
         }
         public static XmlElement CreateElement(XmlDocument xmldoc, Member member)
         {
             XmlElement memberTag = xmldoc.CreateElement("member");
 
-            memberTag.AppendChild(CreateChiledElements(xmldoc, "name",member.name));
-            memberTag.AppendChild(CreateChiledElements(xmldoc, "magor", member.major));
+            memberTag.AppendChild(CreateChiledElements(xmldoc, "name", member.name));
+            memberTag.AppendChild(CreateChiledElements(xmldoc, "major", member.major));
 
             return memberTag;
         }
@@ -47,5 +56,12 @@ namespace Project5
 
             return TagElement;
         }
+        static void ReadXMLFile()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.Load(@"C:/Users/taef_/Desktop/Test.xml");
+           
         }
+    }
+
 }
