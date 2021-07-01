@@ -23,7 +23,7 @@ Xml-Project
 ![Tuwaiq](./Project5/output.png)
 
 
-# Team member :
+# Team members :
 * Ibrahim Alobaysi <br />
 * Meshel Najdi <br />
 * Taif Bin Eid <br />
