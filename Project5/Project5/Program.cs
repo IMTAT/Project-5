@@ -35,7 +35,7 @@ namespace Project5
             {
                 root.AppendChild(CreateElement(xmldoc, member));
             }
-            xmldoc.Save("C:/Users/taef_/Desktop/Test.xml");
+            xmldoc.Save("../../../../../Test.xml");
             Console.WriteLine(xmldoc.InnerXml);
         }
         public static XmlElement CreateElement(XmlDocument xmldoc, Member member)
@@ -59,8 +59,21 @@ namespace Project5
         static void ReadXMLFile()
         {
             XmlDocument xmldoc = new XmlDocument();
-            xmldoc.Load(@"C:/Users/taef_/Desktop/Test.xml");
+            xmldoc.Load(@"../../../../../Test.xml");
            
+            Console.WriteLine();
+            
+            foreach (XmlNode node in xmldoc.DocumentElement.ChildNodes)
+            {
+                string elem = node.Name;
+                Console.Write(elem + ": ");
+
+                XmlNodeList list = node.ChildNodes;
+                string name = list[0].InnerText;
+                string major = list[1].InnerText;
+                
+                Console.WriteLine(name + " -- " + major);
+            }
         }
     }
 
