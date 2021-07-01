@@ -4,8 +4,8 @@
 
 
 # Team member :
-1-Ibrahim Alobaysi 
-2-Meshel Najdi 
-3-Taif Bin Eid
-4- Amal Almutiri
-5- Taghreed Alqahtani 
+* Ibrahim Alobaysi <br />
+* Meshel Najdi <br />
+* Taif Bin Eid <br />
+* Amal Almutiri <br />
+* Taghreed Alqahtani 
