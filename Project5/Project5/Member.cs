@@ -2,8 +2,8 @@
 {
     public class Member
     {
-        private string name;
-        private string major;
+        public string name;
+        public string major;
 
         public Member(string name, string major)
         {
